@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#7c3aed">
+<link rel="manifest" href="manifest.json">
+<title>FamiliAI</title>
+<style>
+:root{--p:#7c3aed;--pink:#ec4899;--mint:#14b8a6;--yellow:#fbbf24;--bg:#f7f5fb;--text:#191622;--muted:#716b7d;--card:#fff}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:system-ui,-apple-system,Segoe UI,sans-serif;color:var(--text)}
+.app{max-width:520px;margin:auto;min-height:100vh;padding-bottom:92px}
+header{padding:22px 20px 10px;position:sticky;top:0;background:rgba(247,245,251,.94);backdrop-filter:blur(12px);z-index:3}
+.logo{display:flex;align-items:center;gap:10px}.logoMark{width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,var(--p),var(--pink));display:grid;place-items:center;color:white;font-size:23px}.logo b{font-size:21px}.logo span{display:block;color:var(--muted);font-size:12px}
+main{padding:10px 18px}.page{display:none}.page.active{display:block}.hero{padding:22px;border-radius:26px;color:white;background:linear-gradient(135deg,var(--p),var(--pink));box-shadow:0 12px 30px #7c3aed2a}.hero small{opacity:.8}.hero h1{font-size:39px;margin:5px 0 14px}.progress{height:9px;background:#ffffff35;border-radius:20px;overflow:hidden}.progress i{display:block;height:100%;background:white;width:52%}.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}.card{background:var(--card);border-radius:20px;padding:16px;box-shadow:0 5px 20px #20152a0a}.metric b{font-size:24px;display:block;margin-top:8px}.metric small,.muted{color:var(--muted)}h2{font-size:21px;margin:20px 0 9px}.advice{display:flex;gap:12px;align-items:flex-start}.bubble{width:44px;height:44px;border-radius:14px;background:#f0e9ff;display:grid;place-items:center;font-size:21px}.row{display:flex;align-items:center;gap:12px}.between{justify-content:space-between}.list .item{margin-bottom:9px}.icon{width:42px;height:42px;border-radius:14px;background:#f0e9ff;display:grid;place-items:center}.amount{font-weight:800}.bar{height:7px;background:#eee9f2;border-radius:9px;margin-top:9px;overflow:hidden}.bar i{height:100%;display:block;background:linear-gradient(90deg,var(--p),var(--mint));border-radius:9px}.btn{border:0;border-radius:15px;padding:14px 16px;background:var(--p);color:white;font-weight:800;font-size:15px}.btn.secondary{background:#eee8ff;color:var(--p)}input{width:100%;padding:14px;border:1px solid #e6e0eb;border-radius:14px;font-size:16px;background:white}.chat{min-height:310px}.msg{padding:12px 14px;border-radius:16px;margin:8px 0;max-width:88%;line-height:1.4}.ai{background:white}.me{background:#eee8ff;margin-left:auto}.nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(520px,100%);background:#fff;border-top:1px solid #eee7f1;display:flex;justify-content:space-around;padding:8px 6px calc(8px + env(safe-area-inset-bottom));z-index:5}.nav button{background:none;border:0;color:#777;font-size:11px;display:grid;gap:3px;place-items:center}.nav button.active{color:var(--p);font-weight:800}.nav span{font-size:21px}.goal{margin-bottom:10px}.goal .row{justify-content:space-between}.tag{font-size:12px;background:#e9faf7;color:#087c6f;padding:5px 9px;border-radius:99px;font-weight:700}.empty{padding:30px;text-align:center;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="app">
+<header><div class="logo"><div class="logoMark">✦</div><div class="logo"><b>FamiliAI</b><span>L'IA qui aide votre famille à mieux vivre</span></div></div></header>
+<main>
+<section id="home" class="page active">
+<div class="hero"><small>Budget disponible</small><h1 id="available">2 630 €</h1><div class="progress"><i></i></div><p>Prévision fin de mois : <b>+420 €</b></p></div>
+<div class="grid"><div class="card metric">💳<b>2 870 €</b><small>Dépensé ce mois</small></div><div class="card metric">💰<b>310 €</b><small>Économies détectées</small></div></div>
+<h2>✨ Conseil FamiliAI</h2><div class="card advice"><div class="bubble">🤖</div><div><b>Vous pouvez économiser ~42 €</b><p class="muted">Votre budget courses est légèrement au-dessus de votre rythme. 3 remplacements sont proposés.</p><button class="btn secondary" onclick="go('groceries')">Voir les solutions</button></div></div>
+<h2>🎯 Objectifs</h2><div id="homeGoals"></div>
+</section>
+<section id="expenses" class="page"><h2>Dépenses</h2><p class="muted">Ajoutez et suivez les dépenses de votre foyer.</p><div class="card"><div class="row between"><span>Total ce mois</span><b id="total">2 870 €</b></div></div><h2>Dernières dépenses</h2><div id="expenseList" class="list"></div><div class="card"><h3>Ajouter une dépense</h3><input id="expenseName" placeholder="Ex. Courses"><br><br><input id="expenseAmount" type="number" placeholder="Montant en €"><br><br><button class="btn" onclick="addExpense()">+ Ajouter</button></div></section>
+<section id="budget" class="page"><h2>Budget</h2><p class="muted">Votre budget familial en un coup d'œil.</p><div id="budgetList"></div><div class="card"><b>Prévision</b><p class="muted">À rythme constant, votre foyer devrait terminer le mois avec environ <b>420 €</b> disponibles.</p></div></section>
+<section id="groceries" class="page"><h2>🛒 Courses</h2><p class="muted">Un panier adapté à votre budget et à vos habitudes.</p><div class="hero"><small>Panier optimisé</small><h1>113,80 €</h1><p>Objectif semaine : 120 €</p></div><h2>Produits</h2><div id="groceryList"></div><button class="btn" onclick="optimize()">✨ Optimiser mon panier</button></section>
+<section id="goals" class="page"><h2>🎯 Objectifs</h2><p class="muted">Donnez une direction à vos économies.</p><div id="goalsList"></div><div class="card"><button class="btn" onclick="newGoal()">+ Créer un objectif</button></div></section>
+<section id="ai" class="page"><h2>🤖 Conseiller FamiliAI</h2><p class="muted">Posez une question sur votre budget.</p><div class="card chat" id="chat"><div class="msg ai">Bonjour ! Je suis FamiliAI. Je peux analyser votre budget, vos courses et vos objectifs.</div><div class="msg ai">Exemple : « Où puis-je économiser 100 € ce mois-ci ? »</div></div><div class="row" style="margin-top:10px"><input id="question" placeholder="Votre question…"><button class="btn" onclick="ask()">➤</button></div></section>
+</main>
+<nav class="nav">
+<button class="active" onclick="go('home',this)"><span>⌂</span>Accueil</button>
+<button onclick="go('expenses',this)"><span>▣</span>Dépenses</button>
+<button onclick="go('budget',this)"><span>◔</span>Budget</button>
+<button onclick="go('groceries',this)"><span>🛒</span>Courses</button>
+<button onclick="go('goals',this)"><span>⚑</span>Objectifs</button>
+</nav>
+</div>
+<script>
+const state={expenses:[['Courses','82,40 €','🛒'],['Carburant','64,00 €','⛽'],['Électricité','121,00 €','⚡'],['Restaurant','48,50 €','🍽️'],['Assurance','73,20 €','🛡️']],goals:[['Vacances',1850,3000,'🏖️'],['Travaux maison',4200,7000,'🏠'],['Épargne de sécurité',3100,5000,'💰']],groceries:['Poulet','Lait','Pâtes','Légumes','Fruits','Yaourts','Pain']};
+function money(n){return new Intl.NumberFormat('fr-FR',{style:'currency',currency:'EUR'}).format(n)}
+function go(id,btn){document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));if(btn)btn.classList.add('active');}
+function render(){document.getElementById('expenseList').innerHTML=state.expenses.map(e=>`<div class="card item"><div class="row"><div class="icon">${e[2]}</div><div style="flex:1"><b>${e[0]}</b><div class="muted">Récent</div></div><span class="amount">${e[1]}</span></div></div>`).join('');
+document.getElementById('budgetList').innerHTML=[['Logement',1250,1250,'🏠'],['Courses',520,650,'🛒'],['Transport',390,500,'🚗'],['Loisirs',180,300,'🎮'],['Abonnements',105,150,'📱']].map(x=>`<div class="card item"><div class="row"><div class="icon">${x[3]}</div><div style="flex:1"><b>${x[0]}</b><div class="muted">${money(x[1])} / ${money(x[2])}</div><div class="bar"><i style="width:${Math.min(100,x[1]/x[2]*100)}%"></i></div></div></div></div>`).join('');
+const goalHtml=state.goals.map(g=>`<div class="card goal"><div class="row"><div class="icon">${g[3]}</div><div style="flex:1"><div class="row"><b>${g[0]}</b><span class="tag">${Math.round(g[1]/g[2]*100)}%</span></div><div class="bar"><i style="width:${g[1]/g[2]*100}%"></i></div><small class="muted">${money(g[1])} / ${money(g[2])}</small></div></div></div>`).join('');
+document.getElementById('goalsList').innerHTML=goalHtml;document.getElementById('homeGoals').innerHTML=state.goals.slice(0,2).map(g=>`<div class="card goal"><b>${g[3]} ${g[0]}</b><div class="bar"><i style="width:${g[1]/g[2]*100}%"></i></div><small class="muted">${money(g[1])} / ${money(g[2])}</small></div>`).join('');
+document.getElementById('groceryList').innerHTML=state.groceries.map((g,i)=>`<div class="card item"><div class="row"><input type="checkbox" checked style="width:22px"><span style="flex:1"><b>${g}</b></span><span class="muted">${[12.5,4.2,2.8,18.4,15.7,7.9,3.4][i].toFixed(2).replace('.',',')} €</span></div></div>`).join('');
+}
+function addExpense(){const n=document.getElementById('expenseName').value.trim(),a=parseFloat(document.getElementById('expenseAmount').value);if(!n||!a)return alert('Indiquez un nom et un montant.');state.expenses.unshift([n,money(a),'💳']);document.getElementById('expenseName').value='';document.getElementById('expenseAmount').value='';render();alert('Dépense ajoutée.')}
+function optimize(){alert('FamiliAI a trouvé 3 remplacements : économie estimée 11,40 € sur ce panier.')}
+function newGoal(){const n=prompt('Nom de l’objectif');if(!n)return;const t=parseInt(prompt('Montant cible (€)')||'0');if(t>0){state.goals.push([n,0,t,'🎯']);render();}}
+function ask(){const q=document.getElementById('question').value.trim();if(!q)return;const c=document.getElementById('chat');c.innerHTML+=`<div class="msg me">${q}</div><div class="msg ai"><b>FamiliAI :</b> En mode démo, j’analyse vos postes de dépenses et je vous propose des économies chiffrées. Dans la version connectée, cette réponse utilisera vos vraies données.</div>`;document.getElementById('question').value='';c.scrollTop=c.scrollHeight}
+render();
+</script>
+</body></html>
