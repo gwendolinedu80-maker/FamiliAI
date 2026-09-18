@@ -7,29 +7,66 @@
 <link rel="manifest" href="manifest.json">
 <title>FamiliAI</title>
 <style>
-:root{--p:#7c3aed;--pink:#ec4899;--mint:#14b8a6;--yellow:#fbbf24;--bg:#f7f5fb;--text:#191622;--muted:#716b7d;--card:#fff}
+:root{--p:#7c3aed;--pink:#ec4899;--mint:#14b8a6;--yellow:#fbbf24;--bg:#f7f5fb;--text:#191622;--muted:#716b7d;--card:#fff;--danger:#dc2626}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:system-ui,-apple-system,Segoe UI,sans-serif;color:var(--text)}
-.app{max-width:520px;margin:auto;min-height:100vh;padding-bottom:92px}
-header{padding:22px 20px 10px;position:sticky;top:0;background:rgba(247,245,251,.94);backdrop-filter:blur(12px);z-index:3}
+.app{max-width:560px;margin:auto;min-height:100vh;padding-bottom:92px}header{padding:18px 18px 10px;position:sticky;top:0;background:rgba(247,245,251,.95);backdrop-filter:blur(12px);z-index:3}
 .logo{display:flex;align-items:center;gap:10px}.logoMark{width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,var(--p),var(--pink));display:grid;place-items:center;color:white;font-size:23px}.logo b{font-size:21px}.logo span{display:block;color:var(--muted);font-size:12px}
-main{padding:10px 18px}.page{display:none}.page.active{display:block}.hero{padding:22px;border-radius:26px;color:white;background:linear-gradient(135deg,var(--p),var(--pink));box-shadow:0 12px 30px #7c3aed2a}.hero small{opacity:.8}.hero h1{font-size:39px;margin:5px 0 14px}.progress{height:9px;background:#ffffff35;border-radius:20px;overflow:hidden}.progress i{display:block;height:100%;background:white;width:52%}.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}.card{background:var(--card);border-radius:20px;padding:16px;box-shadow:0 5px 20px #20152a0a}.metric b{font-size:24px;display:block;margin-top:8px}.metric small,.muted{color:var(--muted)}h2{font-size:21px;margin:20px 0 9px}.advice{display:flex;gap:12px;align-items:flex-start}.bubble{width:44px;height:44px;border-radius:14px;background:#f0e9ff;display:grid;place-items:center;font-size:21px}.row{display:flex;align-items:center;gap:12px}.between{justify-content:space-between}.list .item{margin-bottom:9px}.icon{width:42px;height:42px;border-radius:14px;background:#f0e9ff;display:grid;place-items:center}.amount{font-weight:800}.bar{height:7px;background:#eee9f2;border-radius:9px;margin-top:9px;overflow:hidden}.bar i{height:100%;display:block;background:linear-gradient(90deg,var(--p),var(--mint));border-radius:9px}.btn{border:0;border-radius:15px;padding:14px 16px;background:var(--p);color:white;font-weight:800;font-size:15px}.btn.secondary{background:#eee8ff;color:var(--p)}input{width:100%;padding:14px;border:1px solid #e6e0eb;border-radius:14px;font-size:16px;background:white}.chat{min-height:310px}.msg{padding:12px 14px;border-radius:16px;margin:8px 0;max-width:88%;line-height:1.4}.ai{background:white}.me{background:#eee8ff;margin-left:auto}.nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(520px,100%);background:#fff;border-top:1px solid #eee7f1;display:flex;justify-content:space-around;padding:8px 6px calc(8px + env(safe-area-inset-bottom));z-index:5}.nav button{background:none;border:0;color:#777;font-size:11px;display:grid;gap:3px;place-items:center}.nav button.active{color:var(--p);font-weight:800}.nav span{font-size:21px}.goal{margin-bottom:10px}.goal .row{justify-content:space-between}.tag{font-size:12px;background:#e9faf7;color:#087c6f;padding:5px 9px;border-radius:99px;font-weight:700}.empty{padding:30px;text-align:center;color:var(--muted)}
+main{padding:8px 16px}.page{display:none}.page.active{display:block}.hero{padding:21px;border-radius:26px;color:white;background:linear-gradient(135deg,var(--p),var(--pink));box-shadow:0 12px 30px #7c3aed2a}.hero small{opacity:.82}.hero h1{font-size:38px;margin:5px 0 13px}.progress{height:9px;background:#ffffff35;border-radius:20px;overflow:hidden}.progress i{display:block;height:100%;background:white;border-radius:20px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin:13px 0}.card{background:var(--card);border-radius:20px;padding:15px;box-shadow:0 5px 20px #20152a0a}.metric b{font-size:22px;display:block;margin-top:7px}.metric small,.muted{color:var(--muted)}h2{font-size:21px;margin:20px 0 9px}.advice{display:flex;gap:12px;align-items:flex-start}.bubble{width:44px;height:44px;border-radius:14px;background:#f0e9ff;display:grid;place-items:center;font-size:21px;flex:none}.row{display:flex;align-items:center;gap:11px}.between{justify-content:space-between}.list .item{margin-bottom:9px}.icon{width:42px;height:42px;border-radius:14px;background:#f0e9ff;display:grid;place-items:center;flex:none}.amount{font-weight:800}.bar{height:7px;background:#eee9f2;border-radius:9px;margin-top:8px;overflow:hidden}.bar i{height:100%;display:block;background:linear-gradient(90deg,var(--p),var(--mint));border-radius:9px}.btn{border:0;border-radius:15px;padding:13px 15px;background:var(--p);color:white;font-weight:800;font-size:15px}.btn.secondary{background:#eee8ff;color:var(--p)}.btn.danger{background:#fee2e2;color:var(--danger)}.btn.small{padding:9px 11px;font-size:13px}input,select{width:100%;padding:13px;border:1px solid #e6e0eb;border-radius:14px;font-size:16px;background:white;color:var(--text)}input[type=checkbox]{width:22px}.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.chat{min-height:280px;max-height:430px;overflow:auto}.msg{padding:12px 14px;border-radius:16px;margin:8px 0;max-width:90%;line-height:1.4}.ai{background:#fff}.me{background:#eee8ff;margin-left:auto}.nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(560px,100%);background:#fff;border-top:1px solid #eee7f1;display:flex;justify-content:space-around;padding:7px 4px calc(7px + env(safe-area-inset-bottom));z-index:5}.nav button{background:none;border:0;color:#777;font-size:10px;display:grid;gap:3px;place-items:center}.nav button.active{color:var(--p);font-weight:800}.nav span{font-size:21px}.goal{margin-bottom:10px}.tag{font-size:12px;background:#e9faf7;color:#087c6f;padding:5px 9px;border-radius:99px;font-weight:700}.empty{padding:25px;text-align:center;color:var(--muted)}.pill{display:inline-block;font-size:12px;padding:5px 8px;border-radius:99px;background:#fff3cd}.actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}.toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);background:#191622;color:white;padding:11px 15px;border-radius:13px;display:none;z-index:10;font-size:14px}
 </style>
 </head>
 <body>
 <div class="app">
-<header><div class="logo"><div class="logoMark">✦</div><div class="logo"><b>FamiliAI</b><span>L'IA qui aide votre famille à mieux vivre</span></div></div></header>
+<header><div class="logo"><div class="logoMark">✦</div><div><b>FamiliAI</b><span>L'IA qui aide votre famille à mieux vivre avec son budget</span></div></div></header>
 <main>
 <section id="home" class="page active">
-<div class="hero"><small>Budget disponible</small><h1 id="available">2 630 €</h1><div class="progress"><i></i></div><p>Prévision fin de mois : <b>+420 €</b></p></div>
-<div class="grid"><div class="card metric">💳<b>2 870 €</b><small>Dépensé ce mois</small></div><div class="card metric">💰<b>310 €</b><small>Économies détectées</small></div></div>
-<h2>✨ Conseil FamiliAI</h2><div class="card advice"><div class="bubble">🤖</div><div><b>Vous pouvez économiser ~42 €</b><p class="muted">Votre budget courses est légèrement au-dessus de votre rythme. 3 remplacements sont proposés.</p><button class="btn secondary" onclick="go('groceries')">Voir les solutions</button></div></div>
+<div class="hero"><small>Disponible ce mois</small><h1 id="available">0 €</h1><div class="progress"><i id="monthProgress"></i></div><p id="forecast">Prévision de fin de mois : —</p></div>
+<div class="grid">
+<div class="card metric">💳<b id="spentMetric">0 €</b><small>Dépenses du mois</small></div>
+<div class="card metric">💰<b id="savedMetric">0 €</b><small>Épargne prévue</small></div>
+</div>
+<h2>✨ Conseil FamiliAI</h2><div class="card advice"><div class="bubble">🤖</div><div><b id="adviceTitle">Analyse de votre budget</b><p class="muted" id="adviceText">Ajoutez vos revenus et vos dépenses pour obtenir des conseils personnalisés.</p><button class="btn secondary" onclick="go('ai')">Analyser mon budget</button></div></div>
 <h2>🎯 Objectifs</h2><div id="homeGoals"></div>
 </section>
-<section id="expenses" class="page"><h2>Dépenses</h2><p class="muted">Ajoutez et suivez les dépenses de votre foyer.</p><div class="card"><div class="row between"><span>Total ce mois</span><b id="total">2 870 €</b></div></div><h2>Dernières dépenses</h2><div id="expenseList" class="list"></div><div class="card"><h3>Ajouter une dépense</h3><input id="expenseName" placeholder="Ex. Courses"><br><br><input id="expenseAmount" type="number" placeholder="Montant en €"><br><br><button class="btn" onclick="addExpense()">+ Ajouter</button></div></section>
-<section id="budget" class="page"><h2>Budget</h2><p class="muted">Votre budget familial en un coup d'œil.</p><div id="budgetList"></div><div class="card"><b>Prévision</b><p class="muted">À rythme constant, votre foyer devrait terminer le mois avec environ <b>420 €</b> disponibles.</p></div></section>
-<section id="groceries" class="page"><h2>🛒 Courses</h2><p class="muted">Un panier adapté à votre budget et à vos habitudes.</p><div class="hero"><small>Panier optimisé</small><h1>113,80 €</h1><p>Objectif semaine : 120 €</p></div><h2>Produits</h2><div id="groceryList"></div><button class="btn" onclick="optimize()">✨ Optimiser mon panier</button></section>
-<section id="goals" class="page"><h2>🎯 Objectifs</h2><p class="muted">Donnez une direction à vos économies.</p><div id="goalsList"></div><div class="card"><button class="btn" onclick="newGoal()">+ Créer un objectif</button></div></section>
-<section id="ai" class="page"><h2>🤖 Conseiller FamiliAI</h2><p class="muted">Posez une question sur votre budget.</p><div class="card chat" id="chat"><div class="msg ai">Bonjour ! Je suis FamiliAI. Je peux analyser votre budget, vos courses et vos objectifs.</div><div class="msg ai">Exemple : « Où puis-je économiser 100 € ce mois-ci ? »</div></div><div class="row" style="margin-top:10px"><input id="question" placeholder="Votre question…"><button class="btn" onclick="ask()">➤</button></div></section>
+
+<section id="expenses" class="page">
+<h2>💳 Dépenses</h2><p class="muted">Tout est enregistré sur ce téléphone.</p>
+<div class="card"><div class="row between"><span>Total ce mois</span><b id="total">0 €</b></div></div>
+<h2>Ajouter une dépense</h2>
+<div class="card"><div class="formgrid"><input id="expenseName" placeholder="Ex. Courses"><input id="expenseAmount" type="number" step="0.01" placeholder="Montant €"></div><br><select id="expenseCat"><option>Courses</option><option>Logement</option><option>Transport</option><option>Loisirs</option><option>Abonnements</option><option>Santé</option><option>Autre</option></select><br><br><button class="btn" onclick="addExpense()">+ Ajouter</button></div>
+<h2>Historique</h2><div id="expenseList" class="list"></div>
+</section>
+
+<section id="budget" class="page">
+<h2>📊 Budget familial</h2><p class="muted">Modifiez les montants pour adapter FamiliAI à votre foyer.</p>
+<div class="card"><b>Revenus mensuels</b><br><br><input id="income" type="number" step="0.01" placeholder="Revenus €"><br><br><button class="btn" onclick="saveIncome()">Enregistrer</button></div>
+<h2>Enveloppes</h2><div id="budgetList"></div>
+<div class="card"><b>📅 Prévision</b><p class="muted" id="forecastDetail">—</p></div>
+</section>
+
+<section id="groceries" class="page">
+<h2>🛒 Courses</h2><p class="muted">Construisez un panier et laissez FamiliAI repérer les économies.</p>
+<div class="hero"><small>Total du panier</small><h1 id="cartTotal">0 €</h1><p id="cartTarget">Objectif semaine : 120 €</p></div>
+<h2>Ajouter un produit</h2>
+<div class="card"><div class="formgrid"><input id="productName" placeholder="Ex. Lait"><input id="productPrice" type="number" step="0.01" placeholder="Prix €"></div><br><button class="btn" onclick="addProduct()">+ Ajouter au panier</button></div>
+<h2>Panier</h2><div id="groceryList"></div><button class="btn" onclick="optimize()">✨ Optimiser mon panier</button>
+</section>
+
+<section id="goals" class="page">
+<h2>🎯 Objectifs</h2><p class="muted">Suivez vos projets et votre épargne.</p><div id="goalsList"></div>
+<div class="card"><h3>Créer un objectif</h3><input id="goalName" placeholder="Ex. Vacances"><br><br><div class="formgrid"><input id="goalTarget" type="number" placeholder="Cible €"><input id="goalCurrent" type="number" placeholder="Déjà épargné €"></div><br><button class="btn" onclick="newGoal()">+ Créer</button></div>
+</section>
+
+<section id="ai" class="page">
+<h2>🤖 Conseiller FamiliAI</h2><p class="muted">Analyse locale de vos données. L'IA connectée pourra venir ensuite.</p>
+<div class="card chat" id="chat"><div class="msg ai">Bonjour 👋 Je peux analyser vos revenus, dépenses, budget courses et objectifs.</div><div class="msg ai">Essayez : « Où puis-je économiser ? » ou « Combien me reste-t-il ? »</div></div>
+<div class="row" style="margin-top:10px"><input id="question" placeholder="Votre question…"><button class="btn" onclick="ask()">➤</button></div>
+</section>
+
+<section id="settings" class="page">
+<h2>⚙️ Profil & données</h2>
+<div class="card"><b>Vos données</b><p class="muted">Les données de cette V2 sont stockées localement dans votre navigateur.</p><div class="actions"><button class="btn secondary" onclick="exportData()">Exporter mes données</button><button class="btn danger" onclick="resetData()">Réinitialiser</button></div></div>
+<h2>FamiliAI V2</h2><div class="card"><b>Prochaine étape</b><p class="muted">Compte famille, synchronisation cloud, vrai assistant IA et scanner de tickets pourront être ajoutés sur cette base.</p></div>
+</section>
 </main>
 <nav class="nav">
 <button class="active" onclick="go('home',this)"><span>⌂</span>Accueil</button>
@@ -37,27 +74,99 @@ main{padding:10px 18px}.page{display:none}.page.active{display:block}.hero{paddi
 <button onclick="go('budget',this)"><span>◔</span>Budget</button>
 <button onclick="go('groceries',this)"><span>🛒</span>Courses</button>
 <button onclick="go('goals',this)"><span>⚑</span>Objectifs</button>
+<button onclick="go('settings',this)"><span>⚙</span>Plus</button>
 </nav>
 </div>
+<div id="toast" class="toast"></div>
 <script>
-const state={expenses:[['Courses','82,40 €','🛒'],['Carburant','64,00 €','⛽'],['Électricité','121,00 €','⚡'],['Restaurant','48,50 €','🍽️'],['Assurance','73,20 €','🛡️']],goals:[['Vacances',1850,3000,'🏖️'],['Travaux maison',4200,7000,'🏠'],['Épargne de sécurité',3100,5000,'💰']],groceries:['Poulet','Lait','Pâtes','Légumes','Fruits','Yaourts','Pain']};
-function money(n){return new Intl.NumberFormat('fr-FR',{style:'currency',currency:'EUR'}).format(n)}
-function go(id,btn){document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));if(btn)btn.classList.add('active');}
-function render(){document.getElementById('expenseList').innerHTML=state.expenses.map(e=>`<div class="card item"><div class="row"><div class="icon">${e[2]}</div><div style="flex:1"><b>${e[0]}</b><div class="muted">Récent</div></div><span class="amount">${e[1]}</span></div></div>`).join('');
-document.getElementById('budgetList').innerHTML=[['Logement',1250,1250,'🏠'],['Courses',520,650,'🛒'],['Transport',390,500,'🚗'],['Loisirs',180,300,'🎮'],['Abonnements',105,150,'📱']].map(x=>`<div class="card item"><div class="row"><div class="icon">${x[3]}</div><div style="flex:1"><b>${x[0]}</b><div class="muted">${money(x[1])} / ${money(x[2])}</div><div class="bar"><i style="width:${Math.min(100,x[1]/x[2]*100)}%"></i></div></div></div></div>`).join('');
-const goalHtml=state.goals.map(g=>`<div class="card goal"><div class="row"><div class="icon">${g[3]}</div><div style="flex:1"><div class="row"><b>${g[0]}</b><span class="tag">${Math.round(g[1]/g[2]*100)}%</span></div><div class="bar"><i style="width:${g[1]/g[2]*100}%"></i></div><small class="muted">${money(g[1])} / ${money(g[2])}</small></div></div></div>`).join('');
-document.getElementById('goalsList').innerHTML=goalHtml;document.getElementById('homeGoals').innerHTML=state.goals.slice(0,2).map(g=>`<div class="card goal"><b>${g[3]} ${g[0]}</b><div class="bar"><i style="width:${g[1]/g[2]*100}%"></i></div><small class="muted">${money(g[1])} / ${money(g[2])}</small></div>`).join('');
-document.getElementById('groceryList').innerHTML=state.groceries.map((g,i)=>`<div class="card item"><div class="row"><input type="checkbox" checked style="width:22px"><span style="flex:1"><b>${g}</b></span><span class="muted">${[12.5,4.2,2.8,18.4,15.7,7.9,3.4][i].toFixed(2).replace('.',',')} €</span></div></div>`).join('');
+const defaults={
+ income:5500,
+ expenses:[
+  {name:'Courses',amount:82.40,cat:'Courses',icon:'🛒'},
+  {name:'Carburant',amount:64,cat:'Transport',icon:'⛽'},
+  {name:'Électricité',amount:121,cat:'Logement',icon:'⚡'},
+  {name:'Restaurant',amount:48.50,cat:'Loisirs',icon:'🍽️'},
+  {name:'Assurance',amount:73.20,cat:'Autre',icon:'🛡️'}
+ ],
+ budgets:[
+  {name:'Logement',limit:1250,icon:'🏠'},
+  {name:'Courses',limit:650,icon:'🛒'},
+  {name:'Transport',limit:500,icon:'🚗'},
+  {name:'Loisirs',limit:300,icon:'🎮'},
+  {name:'Abonnements',limit:150,icon:'📱'},
+  {name:'Santé',limit:200,icon:'❤️'}
+ ],
+ goals:[
+  {name:'Vacances',current:1850,target:3000,icon:'🏖️'},
+  {name:'Travaux maison',current:4200,target:7000,icon:'🏠'},
+  {name:'Épargne de sécurité',current:3100,target:5000,icon:'💰'}
+ ],
+ groceries:[
+  {name:'Poulet',price:12.50,checked:true},
+  {name:'Lait',price:4.20,checked:true},
+  {name:'Pâtes',price:2.80,checked:true},
+  {name:'Légumes',price:18.40,checked:true},
+  {name:'Fruits',price:15.70,checked:true},
+  {name:'Yaourts',price:7.90,checked:true},
+  {name:'Pain',price:3.40,checked:true}
+ ]
+};
+let state=JSON.parse(localStorage.getItem('familiAI_v2')||'null')||defaults;
+function save(){localStorage.setItem('familiAI_v2',JSON.stringify(state));}
+function money(n){return new Intl.NumberFormat('fr-FR',{style:'currency',currency:'EUR'}).format(n||0)}
+function totalSpent(){return state.expenses.reduce((s,e)=>s+Number(e.amount),0)}
+function catSpent(cat){return state.expenses.filter(e=>e.cat===cat).reduce((s,e)=>s+Number(e.amount),0)}
+function cartTotal(){return state.groceries.filter(x=>x.checked).reduce((s,x)=>s+Number(x.price),0)}
+function toast(t){const x=document.getElementById('toast');x.textContent=t;x.style.display='block';clearTimeout(window._toast);window._toast=setTimeout(()=>x.style.display='none',2200)}
+function go(id,btn){document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));if(btn)btn.classList.add('active');window.scrollTo(0,0)}
+function iconFor(cat){return ({Courses:'🛒',Logement:'🏠',Transport:'🚗',Loisirs:'🎮',Abonnements:'📱',Santé:'❤️'})[cat]||'💳'}
+function render(){
+ const spent=totalSpent(), available=Number(state.income)-spent;
+ document.getElementById('available').textContent=money(available);
+ document.getElementById('spentMetric').textContent=money(spent);
+ const plannedSave=Math.max(0,available);
+ document.getElementById('savedMetric').textContent=money(plannedSave);
+ const pct=Math.min(100,Math.max(0,spent/Math.max(1,state.income)*100));
+ document.getElementById('monthProgress').style.width=pct+'%';
+ const days=new Date().getDate(), daysInMonth=new Date(new Date().getFullYear(),new Date().getMonth()+1,0).getDate();
+ const daily=spent/Math.max(1,days), projected=Math.max(0,Number(state.income)-daily*daysInMonth);
+ document.getElementById('forecast').innerHTML='Prévision de fin de mois : <b>'+money(projected)+'</b>';
+ document.getElementById('forecastDetail').innerHTML='À votre rythme actuel, environ <b>'+money(projected)+'</b> pourraient rester en fin de mois.';
+ document.getElementById('total').textContent=money(spent);
+ const over=state.budgets.map(b=>({b,v:catSpent(b.name)})).sort((a,b)=>(b.v/b.b.limit)-(a.v/a.b.limit))[0];
+ if(over && over.b.limit && over.v>over.b.limit){document.getElementById('adviceTitle').textContent='Attention au budget '+over.b.name;document.getElementById('adviceText').textContent='Vous avez utilisé '+Math.round(over.v/over.b.limit*100)+' % de cette enveloppe. Une réduction de '+money(over.v-over.b.limit)+' éviterait de dépasser le plafond.'}
+ else {document.getElementById('adviceTitle').textContent='Votre budget est suivi';document.getElementById('adviceText').textContent='Vous avez dépensé '+money(spent)+' sur '+money(state.income)+'. Il reste '+money(available)+' selon les données saisies.'}
+ document.getElementById('expenseList').innerHTML=state.expenses.length?state.expenses.map((e,i)=>`<div class="card item"><div class="row"><div class="icon">${e.icon||iconFor(e.cat)}</div><div style="flex:1"><b>${escapeHtml(e.name)}</b><div class="muted">${escapeHtml(e.cat)}</div></div><span class="amount">${money(e.amount)}</span><button class="btn danger small" onclick="deleteExpense(${i})">×</button></div></div>`).join(''):'<div class="empty">Aucune dépense.</div>';
+ document.getElementById('budgetList').innerHTML=state.budgets.map((b,i)=>{let v=catSpent(b.name),p=Math.min(100,v/b.limit*100);return `<div class="card item"><div class="row"><div class="icon">${b.icon}</div><div style="flex:1"><div class="row between"><b>${b.name}</b><span class="pill">${money(v)} / ${money(b.limit)}</span></div><div class="bar"><i style="width:${p}%"></i></div><div class="actions"><button class="btn secondary small" onclick="editBudget(${i})">Modifier</button></div></div></div></div>`}).join('');
+ const goals=state.goals.map((g,i)=>`<div class="card goal"><div class="row"><div class="icon">${g.icon}</div><div style="flex:1"><div class="row between"><b>${escapeHtml(g.name)}</b><span class="tag">${Math.min(100,Math.round(g.current/g.target*100))}%</span></div><div class="bar"><i style="width:${Math.min(100,g.current/g.target*100)}%"></i></div><small class="muted">${money(g.current)} / ${money(g.target)}</small><div class="actions"><button class="btn secondary small" onclick="addToGoal(${i})">+ Épargne</button><button class="btn danger small" onclick="deleteGoal(${i})">Supprimer</button></div></div></div></div>`).join('');
+ document.getElementById('goalsList').innerHTML=goals||'<div class="empty">Créez votre premier objectif.</div>';
+ document.getElementById('homeGoals').innerHTML=state.goals.slice(0,2).map(g=>`<div class="card goal"><b>${g.icon} ${escapeHtml(g.name)}</b><div class="bar"><i style="width:${Math.min(100,g.current/g.target*100)}%"></i></div><small class="muted">${money(g.current)} / ${money(g.target)}</small></div>`).join('');
+ document.getElementById('groceryList').innerHTML=state.groceries.length?state.groceries.map((g,i)=>`<div class="card item"><div class="row"><input type="checkbox" ${g.checked?'checked':''} onchange="toggleProduct(${i},this.checked)"><span style="flex:1"><b>${escapeHtml(g.name)}</b></span><span class="amount">${money(g.price)}</span><button class="btn danger small" onclick="deleteProduct(${i})">×</button></div></div>`).join(''):'<div class="empty">Panier vide.</div>';
+ document.getElementById('cartTotal').textContent=money(cartTotal());
+ document.getElementById('income').value=state.income;
 }
-function addExpense(){const n=document.getElementById('expenseName').value.trim(),a=parseFloat(document.getElementById('expenseAmount').value);if(!n||!a)return alert('Indiquez un nom et un montant.');state.expenses.unshift([n,money(a),'💳']);document.getElementById('expenseName').value='';document.getElementById('expenseAmount').value='';render();alert('Dépense ajoutée.')}
-function optimize(){alert('FamiliAI a trouvé 3 remplacements : économie estimée 11,40 € sur ce panier.')}
-function newGoal(){const n=prompt('Nom de l’objectif');if(!n)return;const t=parseInt(prompt('Montant cible (€)')||'0');if(t>0){state.goals.push([n,0,t,'🎯']);render();}}
-function ask(){const q=document.getElementById('question').value.trim();if(!q)return;const c=document.getElementById('chat');c.innerHTML+=`<div class="msg me">${q}</div><div class="msg ai"><b>FamiliAI :</b> En mode démo, j’analyse vos postes de dépenses et je vous propose des économies chiffrées. Dans la version connectée, cette réponse utilisera vos vraies données.</div>`;document.getElementById('question').value='';c.scrollTop=c.scrollHeight}
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
+function addExpense(){let n=document.getElementById('expenseName').value.trim(),a=parseFloat(document.getElementById('expenseAmount').value),c=document.getElementById('expenseCat').value;if(!n||!(a>0))return toast('Indiquez un nom et un montant.');state.expenses.unshift({name:n,amount:a,cat:c,icon:iconFor(c)});save();render();document.getElementById('expenseName').value='';document.getElementById('expenseAmount').value='';toast('Dépense ajoutée ✓')}
+function deleteExpense(i){state.expenses.splice(i,1);save();render();toast('Dépense supprimée')}
+function saveIncome(){let n=parseFloat(document.getElementById('income').value);if(!(n>=0))return toast('Montant invalide');state.income=n;save();render();toast('Revenus enregistrés ✓')}
+function editBudget(i){let n=prompt('Nouveau plafond pour '+state.budgets[i].name+' (€)',state.budgets[i].limit);if(n!==null&&parseFloat(n)>=0){state.budgets[i].limit=parseFloat(n);save();render();}}
+function addProduct(){let n=document.getElementById('productName').value.trim(),p=parseFloat(document.getElementById('productPrice').value);if(!n||!(p>=0))return toast('Produit ou prix invalide');state.groceries.push({name:n,price:p,checked:true});save();render();document.getElementById('productName').value='';document.getElementById('productPrice').value='';toast('Produit ajouté ✓')}
+function toggleProduct(i,v){state.groceries[i].checked=v;save();render()}
+function deleteProduct(i){state.groceries.splice(i,1);save();render()}
+function optimize(){let t=cartTotal(),saving=t*.10;toast('Optimisation : économie potentielle d’environ '+money(saving));document.getElementById('cartTarget').textContent='Objectif : '+money(Math.max(0,t-saving))+' après optimisation';}
+function newGoal(){let n=document.getElementById('goalName').value.trim(),t=parseFloat(document.getElementById('goalTarget').value),c=parseFloat(document.getElementById('goalCurrent').value)||0;if(!n||!(t>0)||c<0)return toast('Complétez les champs');state.goals.push({name:n,target:t,current:Math.min(c,t),icon:'🎯'});save();render();['goalName','goalTarget','goalCurrent'].forEach(x=>document.getElementById(x).value='');toast('Objectif créé ✓')}
+function addToGoal(i){let n=parseFloat(prompt('Combien ajouter à '+state.goals[i].name+' (€)')||'0');if(n>0){state.goals[i].current=Math.min(state.goals[i].target,state.goals[i].current+n);save();render();toast('Épargne ajoutée ✓')}}
+function deleteGoal(i){if(confirm('Supprimer cet objectif ?')){state.goals.splice(i,1);save();render();}}
+function ask(){let q=document.getElementById('question').value.trim();if(!q)return;let spent=totalSpent(),available=state.income-spent,cart=cartTotal(),lower=q.toLowerCase();let answer;
+if(lower.includes('reste')||lower.includes('disponible')) answer='Il vous reste actuellement <b>'+money(available)+'</b> après '+money(spent)+' de dépenses.';
+else if(lower.includes('économ')||lower.includes('econom')){let b=state.budgets.map(x=>({x,v:catSpent(x.name)})).filter(z=>z.v>0).sort((a,b)=>b.v-a.v)[0];answer=b?'Votre poste le plus dépensé parmi les enveloppes est <b>'+b.x.name+'</b> avec '+money(b.v)+'. C’est un bon point de départ pour chercher des économies.':'Ajoutez davantage de dépenses pour que je puisse repérer les postes à travailler.'}
+else if(lower.includes('course')) answer='Votre panier actuel représente <b>'+money(cart)+'</b>. Je peux vous aider à comparer un objectif hebdomadaire et à réduire le panier.';
+else if(lower.includes('objectif')||lower.includes('épargne')||lower.includes('epargne')){let g=state.goals[0];answer=g?'Votre prochain objectif est <b>'+escapeHtml(g.name)+'</b>, à '+Math.round(g.current/g.target*100)+' %.':'Créez un objectif pour suivre votre épargne.'}
+else answer='Avec vos données actuelles : revenus <b>'+money(state.income)+'</b>, dépenses <b>'+money(spent)+'</b>, disponible <b>'+money(available)+'</b>. Posez-moi une question sur les économies, les courses, le budget ou vos objectifs.';
+let c=document.getElementById('chat');c.innerHTML+=`<div class="msg me">${escapeHtml(q)}</div><div class="msg ai"><b>FamiliAI :</b> ${answer}</div>`;document.getElementById('question').value='';c.scrollTop=c.scrollHeight}
+function exportData(){let blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='FamiliAI-donnees.json';a.click();URL.revokeObjectURL(a.href);toast('Export téléchargé ✓')}
+function resetData(){if(confirm('Effacer toutes les données locales et revenir aux exemples ?')){state=JSON.parse(JSON.stringify(defaults));save();render();toast('Données réinitialisées')}}
 render();
 </script>
-<script>
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => navigator.serviceWorker.register('./service-worker.js'));
-}
-</script>
+<script>if('serviceWorker'in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('./service-worker.js'));</script>
 </body></html>
