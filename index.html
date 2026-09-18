@@ -55,4 +55,9 @@ function newGoal(){const n=prompt('Nom de l’objectif');if(!n)return;const t=pa
 function ask(){const q=document.getElementById('question').value.trim();if(!q)return;const c=document.getElementById('chat');c.innerHTML+=`<div class="msg me">${q}</div><div class="msg ai"><b>FamiliAI :</b> En mode démo, j’analyse vos postes de dépenses et je vous propose des économies chiffrées. Dans la version connectée, cette réponse utilisera vos vraies données.</div>`;document.getElementById('question').value='';c.scrollTop=c.scrollHeight}
 render();
 </script>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => navigator.serviceWorker.register('./service-worker.js'));
+}
+</script>
 </body></html>
